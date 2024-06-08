@@ -1,5 +1,4 @@
-"""
-A Flask web application module for serving an ice breaker interaction interface.
+"""A Flask web application module for serving an ice breaker interaction interface.
 
 This module sets up a Flask web server with routes to handle requests for ice breaker interactions.
 It utilizes the `ice_breaker` module to generate responses based on user input, and serves these
@@ -11,6 +10,7 @@ such as API keys or database URIs.
 Routes:
     / (GET): Renders the main index page of the web application.
 """
+
 from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 
@@ -23,8 +23,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    """
-    Renders the main index page of the web application.
+    """Renders the main index page of the web application.
+
     Returns:
         str: The HTML content of the index page.
     """
@@ -33,10 +33,11 @@ def index():
 
 @app.route("/process", methods=["POST"])
 def process():
-    """
-    Processes the user input received from the web interface, invoking the ice breaker logic.
+    """Processes the user input received from the web interface, invoking the ice
+    breaker logic.
+
     Returns:
-        str: A formatted string or HTML content that includes the ice breaker's response to the 
+        str: A formatted string or HTML content that includes the ice breaker's response to the
         user input.
     """
     name = request.form["name"]
