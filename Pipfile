@@ -9,6 +9,7 @@ langchain = "*"
 langchain-openai = "*"
 flask = "*"
 pylint = "*"
+langchain-community = "*"
 
 [dev-packages]
 
