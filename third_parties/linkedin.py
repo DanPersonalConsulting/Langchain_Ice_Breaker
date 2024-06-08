@@ -1,3 +1,22 @@
+"""
+This module interacts with LinkedIn. It supports authentication, data retrieval,
+and management, using environment variables for configuration.
+
+Dependencies:
+    - python-dotenv: Loads .env file for API keys and secrets, avoiding hard-coded
+      sensitive information.
+
+Functions and classes are designed for LinkedIn interactions like fetching profiles,
+posting updates, or managing connections.
+
+Example:
+    Ensure a .env file with LinkedIn API credentials is present:
+    
+        LINKEDIN_API_KEY=your_api_key_here
+        LINKEDIN_API_SECRET=your_api_secret_here
+    
+    Import this module in your script to use its functionalities.
+"""
 import os
 import requests
 from dotenv import load_dotenv
@@ -6,11 +25,11 @@ load_dotenv()
 
 
 def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
-    """scrape information from LinkedIn profiles,
-    Manually scrape the information from the LinkedIn profile"""
+    """Scrape information from LinkedIn profiles, Manually scrape the information from
+    the LinkedIn profile."""
 
     if mock:
-        linkedin_profile_url = "https://gist.githubusercontent.com/emarco177/0d6a3f93dd06634d95e46a2782ed7490/raw/78233eb934aa9850b689471a604465b188e761a0/eden-marco.json"
+        linkedin_profile_url = "https://gist.githubusercontent.com/emarco177/0d6a3f93dd06634d95e46a2782ed7490/raw/78233eb934aa9850b689471a604465b188e761a0/eden-marco.json"  # pylint: disable=line-too-long
         response = requests.get(
             linkedin_profile_url,
             timeout=10,
@@ -29,8 +48,7 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
     data = {
         k: v
         for k, v in data.items()
-        if v not in ([], "", "", None)
-        and k not in ["people_also_viewed", "certifications"]
+        if v not in ([], "", "", None) and k not in ["people_also_viewed", "certifications"]
     }
     if data.get("groups"):
         for group_dict in data.get("groups"):
