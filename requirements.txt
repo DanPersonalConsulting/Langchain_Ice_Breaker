@@ -4,3 +4,4 @@ langchain-openai
 flask 
 pylint 
 langchain_community
+langsmith

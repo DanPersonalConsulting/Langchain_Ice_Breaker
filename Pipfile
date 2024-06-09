@@ -10,6 +10,7 @@ langchain-openai = "*"
 flask = "*"
 pylint = "*"
 langchain-community = "*"
+langsmith = "*"
 
 [dev-packages]
 
